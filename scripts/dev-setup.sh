@@ -23,5 +23,5 @@ sudo apt-get install -y \
   dwarves \
   pkg-config
 
-echo "Fortress OS development environment ready."
+echo "anonPlus OS development environment ready."
 echo "Use ./scripts/build-kernel.sh to begin a kernel build."
