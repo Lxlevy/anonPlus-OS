@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "Fortress OS leak-test checklist"
+echo "anonPlus OS leak-test checklist"
 echo
 echo "1. Verify the application namespace has no default route to the WAN."
 echo "2. Verify direct TCP connections from the application namespace fail."
