@@ -1,4 +1,4 @@
-# Fortress OS Architecture
+# anonPlus OS Architecture
 
 ## 1. Security domains
 
@@ -157,7 +157,7 @@ The benefit is lower complexity and lower overhead.
 
 The trade-off is important: a second VM or physical gateway can reduce the trusted computing base and provide stronger isolation. Whonix explicitly documents physical isolation for cases where stronger separation is required.
 
-Fortress OS therefore treats namespaces as a convenience/security layer, not as a claim of perfect isolation.
+anonPlus OS therefore treats namespaces as a convenience/security layer, not as a claim of perfect isolation.
 
 ## 10. Development stages
 
