@@ -1,4 +1,4 @@
-# Fortress OS
+# anonPlus OS
 
 A research prototype for a single-OS privacy/security platform combining:
 
