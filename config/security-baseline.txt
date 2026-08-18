@@ -1,4 +1,4 @@
-FORTRESS OS SECURITY BASELINE
+anonPlus OS SECURITY BASELINE
 
 BOOT / TRUST
 - Secure Boot-capable boot chain
