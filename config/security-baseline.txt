@@ -1,0 +1,49 @@
+FORTRESS OS SECURITY BASELINE
+
+BOOT / TRUST
+- Secure Boot-capable boot chain
+- signed kernel
+- signed immutable root hash
+- rollback protection
+- measured boot where supported
+
+FILESYSTEM
+- verified root
+- root mounted read-only
+- mutable state separated
+- no writable system directories for ordinary users
+
+NETWORK
+- no direct WAN route from application domain
+- fail-closed firewall
+- DNS forced into Tor path
+- Tor bootstrap failure = no application network
+- IPv6 policy explicitly enforced
+- raw sockets denied to ordinary applications
+
+PROCESS
+- least privilege
+- no ambient capabilities
+- seccomp
+- LSM policy
+- ASLR/PIE
+- stack protection
+- W^X
+- RELRO
+- guard pages
+- randomized allocation where available
+
+BUILD
+- pinned toolchain
+- reproducible builds
+- signed release artifacts
+- isolated build/signing keys
+- CI fuzzing and static analysis
+
+VALIDATION
+- leak tests
+- tamper tests
+- boot rollback tests
+- syscall tests
+- fuzzing
+- kernel hardening audit
