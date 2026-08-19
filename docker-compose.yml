@@ -1,0 +1,28 @@
+services:
+  desktop:
+    build:
+      context: .
+      dockerfile: docker/desktop/Dockerfile
+    image: anonplus-desktop:local
+    container_name: anonplus-desktop
+    environment:
+      VNC_PW: "${ANONPLUS_VNC_PASSWORD:?Copy .env.example to .env and set ANONPLUS_VNC_PASSWORD}"
+      VNC_RESOLUTION: "${ANONPLUS_RESOLUTION:-1600x900}"
+    shm_size: "1gb"
+    volumes:
+      - anonplus-home:/home/kasm-user
+    restart: unless-stopped
+
+  desktop-gateway:
+    image: nginx:1.27-alpine
+    container_name: anonplus-desktop-gateway
+    depends_on:
+      - desktop
+    ports:
+      - "${ANONPLUS_PORT:-6901}:8080"
+    volumes:
+      - ./docker/desktop/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
+
+volumes:
+  anonplus-home:
