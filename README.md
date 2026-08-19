@@ -36,17 +36,31 @@ See `docs/architecture.md`.
 
 ## First milestone
 
-The first milestone is intentionally small:
+The first milestone is intentionally small. The networking prototype is now
+implemented as host Linux namespaces and is separate from the browser desktop:
 
-- Linux kernel
-- minimal userspace
-- Tor daemon in a dedicated network namespace
-- application namespace with no physical NIC
-- nftables fail-closed policy
-- DNS forced through Tor
-- read-only verified root filesystem
-- writable `/var` and `/home` on separate state storage
-- QEMU integration tests
+- [ ] Linux kernel build and boot image
+- [ ] minimal userspace image
+- [x] Tor daemon in a dedicated network namespace
+- [x] application namespace with no physical NIC
+- [x] nftables fail-closed policy
+- [x] DNS forced through Tor
+- [x] Tor bootstrap health gate
+- [x] executable namespace and Tor-stop tests
+- [x] dm-verity image/signature build pipeline
+- [x] kernel hardening config contract and checker
+- [ ] writable `/var` and `/home` on separate booted state storage
+- [ ] QEMU integration tests
+
+Run the networking prototype with `make network-up` and `make test` after
+`make setup`. These commands require root network administration privileges.
+`network-up` refuses to report success unless Tor reaches 100% bootstrap. A
+Codespace may not permit the nested router namespace to forward outbound TCP;
+that is an environment limitation, and the fail-closed behavior is expected.
+
+The immutable-root pipeline is available through `make rootfs`, but it requires
+an explicit `SIGNING_KEY`; no production signing key is generated or stored by
+the repository. The image pipeline is not yet wired into a bootloader or QEMU.
 
 ## Browser desktop
 
@@ -78,4 +92,7 @@ network policy.
 
 ## Status
 
-Research prototype. Not production security software.
+Research prototype. The namespace networking and build contracts are
+implemented, but the kernel boot chain, immutable image boot integration,
+state partitions, and QEMU security tests are still incomplete. Not production
+security software.
