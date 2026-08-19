@@ -1,0 +1,9 @@
+DataDirectory /var/lib/anonplus-tor
+User debian-tor
+RunAsDaemon 0
+SocksPort 127.0.0.1:9050 IsolateClientAddr IsolateSOCKSAuth
+TransPort 10.200.1.1:9040
+DNSPort 10.200.1.1:5353
+AutomapHostsOnResolve 1
+VirtualAddrNetworkIPv4 10.192.0.0/10
+ClientOnly 1
