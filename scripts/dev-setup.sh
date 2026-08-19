@@ -5,8 +5,10 @@ sudo apt-get update
 sudo apt-get install -y \
   build-essential \
   clang \
+  curl \
   llvm \
   lld \
+  iproute2 \
   qemu-system-x86 \
   qemu-utils \
   tor \
@@ -21,6 +23,8 @@ sudo apt-get install -y \
   libssl-dev \
   libdw-dev \
   dwarves \
+  cryptsetup-bin \
+  e2fsprogs \
   pkg-config
 
 echo "anonPlus OS development environment ready."
