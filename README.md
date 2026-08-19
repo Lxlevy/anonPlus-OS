@@ -34,6 +34,10 @@ The final security validation must happen on a real test machine with the intend
 
 See `docs/architecture.md`.
 
+## Contributing
+
+See `docs/contributing.md`.
+
 ## First milestone
 
 The first milestone is intentionally small. The networking prototype is now
