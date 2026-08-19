@@ -48,6 +48,34 @@ The first milestone is intentionally small:
 - writable `/var` and `/home` on separate state storage
 - QEMU integration tests
 
+## Browser desktop
+
+The repository also includes a runnable desktop shell for development. It is
+an Ubuntu XFCE container based on KasmVNC, exposed through a Codespaces-safe
+gateway on port `6901`. This is a development UX layer, not yet the final
+bootable anonPlus kernel image or a claim that all desktop traffic is
+Tor-enforced.
+
+Prerequisites: Docker Engine with the Compose plugin.
+
+```sh
+cp .env.example .env
+# Change ANONPLUS_VNC_PASSWORD in .env before starting the service.
+make desktop
+```
+
+In GitHub Codespaces, open the forwarded port from the Ports tab. The
+Codespaces HTTPS proxy now handles the browser certificate; use username
+`kasm_user` and the password from `.env` when prompted. For local Docker,
+open `http://localhost:6901`. Stop it with `make desktop-down`. The named
+`anonplus-home` volume keeps the desktop user's files across container
+rebuilds.
+
+To expose another host port, set `ANONPLUS_PORT`; to choose a different
+resolution, set `ANONPLUS_RESOLUTION`. Do not publish this service directly to
+the public internet without TLS, authentication controls, and a reviewed
+network policy.
+
 ## Status
 
 Research prototype. Not production security software.
